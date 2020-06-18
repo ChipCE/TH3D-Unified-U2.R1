@@ -67,7 +67,7 @@
   #error "Only uncomment ONE type of bed thermistor option."
 #endif
 
-#if ENABLED(CUSTOM_PROBE) && (DISABLED(X_PROBE_OFFSET_FROM_EXTRUDER) || DISABLED(Y_PROBE_OFFSET_FROM_EXTRUDER))
+#if ENABLED(CUSTOM_PROBE) && (!defined(X_PROBE_OFFSET_FROM_EXTRUDER) || !defined(Y_PROBE_OFFSET_FROM_EXTRUDER))
   #error "X_PROBE_OFFSET_FROM_EXTRUDER and X_PROBE_OFFSET_FROM_EXTRUDER must be defined with CUSTOM_PROBE."
 #endif
 
@@ -448,8 +448,8 @@
   #error "STRING_SPLASH_LINE[12] are now obsolete. Please remove them from Configuration.h."
 #elif defined(Z_PROBE_ALLEN_KEY_DEPLOY_1_X) || defined(Z_PROBE_ALLEN_KEY_STOW_1_X)
   #error "Z_PROBE_ALLEN_KEY_(DEPLOY|STOW) coordinates are now a single setting. Please update your configuration."
-#elif defined(X_PROBE_OFFSET_FROM_EXTRUDER) || defined(Y_PROBE_OFFSET_FROM_EXTRUDER) || defined(Z_PROBE_OFFSET_FROM_EXTRUDER)
-  #error "[XYZ]_PROBE_OFFSET_FROM_EXTRUDER is now NOZZLE_TO_PROBE_OFFSET. Please update your configuration."
+//#elif defined(X_PROBE_OFFSET_FROM_EXTRUDER) || defined(Y_PROBE_OFFSET_FROM_EXTRUDER) || defined(Z_PROBE_OFFSET_FROM_EXTRUDER)
+//  #error "[XYZ]_PROBE_OFFSET_FROM_EXTRUDER is now NOZZLE_TO_PROBE_OFFSET. Please update your configuration."
 #elif defined(MIN_PROBE_X) || defined(MIN_PROBE_Y) || defined(MAX_PROBE_X) || defined(MAX_PROBE_Y)
   #error "(MIN|MAX)_PROBE_[XY] are now calculated at runtime. Please remove them from Configuration.h."
 #elif defined(Z_STEPPER_ALIGN_X) || defined(Z_STEPPER_ALIGN_X)
