@@ -209,7 +209,8 @@
   * Specify a Probe position as { X, Y, Z }
   * Do NOT enter an number for the Z position in here. Store your offset in EEPROM.
   */
-  #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  #define X_PROBE_OFFSET_FROM_EXTRUDER 10
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER 10
 #endif
 
 //===========================================================================

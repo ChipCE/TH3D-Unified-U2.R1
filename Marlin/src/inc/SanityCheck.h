@@ -67,6 +67,10 @@
   #error "Only uncomment ONE type of bed thermistor option."
 #endif
 
+#if ENABLED(CUSTOM_PROBE) && (DISABLED(X_PROBE_OFFSET_FROM_EXTRUDER) || DISABLED(Y_PROBE_OFFSET_FROM_EXTRUDER))
+  #error "X_PROBE_OFFSET_FROM_EXTRUDER and X_PROBE_OFFSET_FROM_EXTRUDER must be defined with CUSTOM_PROBE."
+#endif
+
 /**
  * Require gcc 4.7 or newer (first included with Arduino 1.6.8) for C++11 features.
  */
